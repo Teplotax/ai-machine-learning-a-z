@@ -60,14 +60,14 @@ y = le.fit_transform(y)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 1)
 
-print('====================')
-print(X_train)
-print('====================')
-print(X_test)
-print('====================')
-print(y_train)
-print('====================')
-print(y_test)
+# print('====================')
+# print(X_train)
+# print('====================')
+# print(X_test)
+# print('====================')
+# print(y_train)
+# print('====================')
+# print(y_test)
 
 ############################################################
 # Feature Scaling
@@ -75,5 +75,10 @@ print(y_test)
 # from sklearn.preprocessing import StandardScaler
 
 sc = StandardScaler()
-X_train = sc.fit_transform(X_train)
-X_test = sc.transform(X_test)
+X_train[:, 3:] = sc.fit_transform(X_train[:, 3:]) #The [:, 3:] removes the one-hot encoded columns
+X_test[:, 3:] = sc.transform(X_test[:, 3:])
+
+print('====================')
+print(X_train)
+print('====================')
+print(X_test)
