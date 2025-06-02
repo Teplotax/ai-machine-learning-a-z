@@ -27,7 +27,7 @@ from sklearn.preprocessing import OneHotEncoder
 ct = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [0])], remainder='passthrough')
 X = np.array(ct.fit_transform(X))
 
-# print(X)
+print(X)
 
 #Encoding the Dependent Variable
 from sklearn.preprocessing import LabelEncoder
@@ -35,4 +35,18 @@ from sklearn.preprocessing import LabelEncoder
 le = LabelEncoder()
 y = le.fit_transform(y)
 
-print(y)
+# print(y)
+
+# Splitting the dataset into the Training set and Test set
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 1)
+
+print('====================')
+print(X_train)
+print('====================')
+print(X_test)
+# print('====================')
+# print(y_train)
+# print('====================')
+# print(y_test)
