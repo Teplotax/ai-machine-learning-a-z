@@ -43,9 +43,9 @@ regressor.fit(X_train, y_train)
 ############################################################
 y_pred = regressor.predict(X_test)
 
-print(y_test)
-print('====================')
-print(y_pred)
+# print(y_test)
+# print('====================')
+# print(y_pred)
 
 ############################################################
 # Visualising the Training set results
@@ -63,3 +63,8 @@ plt.title('Salary vs Experience (Test set)')
 plt.xlabel('Years of Experience')
 plt.ylabel('Salary')
 plt.show()
+
+
+# R² for Linear Regression
+r2 = regressor.score(X, y)
+print(f"R² for Linear Regression: {r2:.4f}")
