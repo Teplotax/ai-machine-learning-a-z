@@ -47,6 +47,12 @@ print("Intercept:", regressor.intercept_)
 # y_single_pred = regressor.predict(X_single)
 # print(y_single_pred)
 
+# R² for Multiple Linear Regression
+r2 = regressor.score(X, y)
+print(f"R² for Linear Regression: {r2:.4f}")
+
+
+
 
 
 

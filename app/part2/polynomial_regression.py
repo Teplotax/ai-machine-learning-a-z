@@ -60,3 +60,12 @@ X_single = [[6]]
 X_single_poly = poly_reg.transform(X_single)  # Transform to polynomial features
 prediction = lin_reg_2.predict(X_single_poly)
 print(f"Predicted salary for level 6: {prediction[0]}")
+
+
+# R² for Linear Regression
+r2_linear = lin_reg.score(X, y)
+print(f"R² for Linear Regression: {r2_linear:.4f}")
+
+# R² for Polynomial Regression
+r2_poly = lin_reg_2.score(X_poly, y)
+print(f"R² for Polynomial Regression: {r2_poly:.4f}")

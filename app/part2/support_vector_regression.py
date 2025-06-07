@@ -7,7 +7,7 @@ from sklearn.svm import SVR
 dataset = pd.read_csv('dataset/position_salaries.csv')
 X = dataset.iloc[:, 1:-1].values
 y = dataset.iloc[:, -1].values
-y = y.reshape((len(y), 1))
+y = y.reshape((-1, 1))
 
 # print(X)
 # print(y)
@@ -52,3 +52,8 @@ plt.title('Truth or Bluff (SVR)')
 plt.xlabel('Position level')
 plt.ylabel('Salary')
 plt.show()
+
+
+# R² for Linear Regression
+r2 = regressor.score(X, y)
+print(f"R² for Linear Regression: {r2:.4f}")
