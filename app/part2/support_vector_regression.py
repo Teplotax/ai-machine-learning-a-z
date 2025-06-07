@@ -7,7 +7,7 @@ from sklearn.svm import SVR
 dataset = pd.read_csv('dataset/position_salaries.csv')
 X = dataset.iloc[:, 1:-1].values
 y = dataset.iloc[:, -1].values
-y = y.reshape((len(y), 1))
+y = y.reshape((-1, 1))
 
 # print(X)
 # print(y)
