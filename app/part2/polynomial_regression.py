@@ -69,3 +69,8 @@ print(f"R² for Linear Regression: {r2_linear:.4f}")
 # R² for Polynomial Regression
 r2_poly = lin_reg_2.score(X_poly, y)
 print(f"R² for Polynomial Regression: {r2_poly:.4f}")
+
+# R² for Polynomial Regression with sklearn
+from sklearn.metrics import r2_score
+y_pred = lin_reg_2.predict(X_poly)
+print(r2_score(y, y_pred))
