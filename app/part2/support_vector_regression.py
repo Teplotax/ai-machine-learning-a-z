@@ -54,6 +54,6 @@ plt.ylabel('Salary')
 plt.show()
 
 
-# R² for Linear Regression
+# R² for Support Vector Regression
 r2 = regressor.score(X, y)
 print(f"R² for Linear Regression: {r2:.4f}")
