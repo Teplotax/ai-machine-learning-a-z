@@ -1,3 +1,5 @@
+import time
+
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -32,7 +34,11 @@ classifier.fit(X_train, y_train)
 
 
 # Predicting a new result
-# print(classifier.predict(sc.transform([[30,87000]])))
+start = time.time()
+print(classifier.predict(sc.transform([[30,87000]])))
+end = time.time()
+elapsed = (end - start) * 1000
+print(f"Elapsed time: {elapsed:.2f} milliseconds")
 
 
 # Predicting the Test set results
@@ -49,6 +55,8 @@ print(accuracy_score(y_test, y_pred))
 
 # Visualising the Training set results
 # from matplotlib.colors import ListedColormap
+
+
 X_set, y_set = sc.inverse_transform(X_train), y_train
 X1, X2 = np.meshgrid(np.arange(start = X_set[:, 0].min() - 10, stop = X_set[:, 0].max() + 10, step = 0.25),
                      np.arange(start = X_set[:, 1].min() - 1000, stop = X_set[:, 1].max() + 1000, step = 0.25))
@@ -63,3 +71,4 @@ plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()
 plt.show()
+
