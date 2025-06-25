@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.svm import SVC
+from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import confusion_matrix, accuracy_score
 from matplotlib.colors import ListedColormap
 
@@ -25,9 +25,9 @@ X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 
 
-# Training the Kernel SVM model on the Training set
-# from sklearn.svm import SVC
-classifier = SVC(kernel = 'rbf', random_state = 0)
+# Training the Naive Bayes model on the Training set
+# from sklearn.naive_bayes import GaussianNB
+classifier = GaussianNB()
 classifier.fit(X_train, y_train)
 
 
@@ -58,7 +58,7 @@ plt.xlim(X1.min(), X1.max())
 plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(y_set)):
     plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1], c = ListedColormap(['#FA8072', '#1E90FF'])(i), label = j)
-plt.title('Kernel SVM (Training set)')
+plt.title('Naive Bayes (Training set)')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()
@@ -88,7 +88,7 @@ for i, j in enumerate(np.unique(y_set)):
         color=colors[i], label=j
     )
 # Add titles and labels
-plt.title('Kernel SVM (Test set)')
+plt.title('Naive Bayes (Test set)')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()
