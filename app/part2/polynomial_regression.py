@@ -19,7 +19,7 @@ lin_reg.fit(X, y)
 
 # Training the Polynomial Regression model on the whole dataset
 # from sklearn.preprocessing import PolynomialFeatures
-poly_reg = PolynomialFeatures(degree = 4)
+poly_reg = PolynomialFeatures(degree = 5)
 X_poly = poly_reg.fit_transform(X)
 lin_reg_2 = LinearRegression()
 lin_reg_2.fit(X_poly, y)
@@ -69,3 +69,8 @@ print(f"R² for Linear Regression: {r2_linear:.4f}")
 # R² for Polynomial Regression
 r2_poly = lin_reg_2.score(X_poly, y)
 print(f"R² for Polynomial Regression: {r2_poly:.4f}")
+
+# R² for Polynomial Regression with sklearn
+from sklearn.metrics import r2_score
+y_pred = lin_reg_2.predict(X_poly)
+print(r2_score(y, y_pred))
